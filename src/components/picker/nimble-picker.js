@@ -13,6 +13,8 @@ import Category from '../category'
 import Preview from '../preview'
 import Search from '../search'
 import { PickerDefaultProps } from '../../utils/shared-default-props'
+import SimpleBar from 'simplebar-react';
+import 'simplebar/dist/simplebar.min.css';
 
 const I18N = {
   search: 'Search',
@@ -574,11 +576,12 @@ export default class NimblePicker extends React.PureComponent {
           custom={this.CUSTOM}
           autoFocus={autoFocus}
         />
-
-        <div
-          ref={this.setScrollRef}
-          className="emoji-mart-scroll"
+        <SimpleBar
+          style={{ height: '100%', width: '100%', maxHeight: '100%' }}
+          scrollableNodeProps={{ ref: this.setScrollRef }}
           onScroll={this.handleScroll}
+          forceVisible="y"
+          autoHide={true}
         >
           {this.getCategories().map((category, i) => {
             return (
@@ -622,7 +625,7 @@ export default class NimblePicker extends React.PureComponent {
               />
             )
           })}
-        </div>
+        </SimpleBar>
 
         {(showPreview || showSkinTones) && (
           <div className="emoji-mart-bar">
