@@ -560,7 +560,7 @@ export default class NimblePicker extends React.PureComponent {
           <div className="emoji-mart-strip-wrapper">
             {showSkinTones && (
               <div className="emoji-mart-strip-skin">
-                <div className={`emoji-mart-preview-skins${skinsProps.skinEmoji ? ' custom' : ''}`} >
+                <div className={`emoji-mart-preview-skins${skinEmoji ? ' custom' : ''}`} >
                   {skinEmoji
                     ? <SkinsEmoji
                         skin={skin}
