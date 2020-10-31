@@ -13,6 +13,9 @@ import Category from '../category'
 import Preview from '../preview'
 import Search from '../search'
 import { PickerDefaultProps } from '../../utils/shared-default-props'
+
+import SkinsEmoji from './skins-emoji';
+import SkinsDot from './skins-dot';
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 
@@ -553,33 +556,55 @@ export default class NimblePicker extends React.PureComponent {
         aria-label={title}
         onKeyDown={this.handleKeyDown}
       >
-        <div className="emoji-mart-bar">
-          <Anchors
-            ref={this.setAnchorsRef}
-            data={this.data}
-            i18n={this.i18n}
-            color={color}
-            categories={this.categories}
-            onAnchorClick={this.handleAnchorClick}
-            icons={this.icons}
-          />
+        <div className="emoji-mart-strip-container">
+          <div className="emoji-mart-strip-wrapper">
+            {showSkinTones && (
+              <div className="emoji-mart-strip-skin">
+                <div className={`emoji-mart-preview-skins${skinsProps.skinEmoji ? ' custom' : ''}`} >
+                  {skinEmoji
+                    ? <SkinsEmoji
+                        skin={skin}
+                        data={this.data}
+                        skinEmoji={skinEmoji}
+                        i18n={this.i18n}
+                        onChange={this.handleSkinChange}
+                        emojiProps={{
+                          native: native,
+                          size: 38,
+                          skin: skin,
+                          set: set,
+                          sheetSize: sheetSize,
+                          sheetColumns: sheetColumns,
+                          sheetRows: sheetRows,
+                          backgroundImageFn: backgroundImageFn,
+                        }}
+                      />
+                    : <SkinsDot
+                        skin={skin}
+                        i18n={this.i18n}
+                        onChange={this.handleSkinChange}
+                      />
+                  )}
+                </div>
+              </div>
+            )}
+            <Search
+              ref={this.setSearchRef}
+              onSearch={this.handleSearch}
+              data={this.data}
+              i18n={this.i18n}
+              emojisToShowFilter={emojisToShowFilter}
+              include={include}
+              exclude={exclude}
+              custom={this.CUSTOM}
+              autoFocus={autoFocus}
+            />
+          </div>
         </div>
-
-        <Search
-          ref={this.setSearchRef}
-          onSearch={this.handleSearch}
-          data={this.data}
-          i18n={this.i18n}
-          emojisToShowFilter={emojisToShowFilter}
-          include={include}
-          exclude={exclude}
-          custom={this.CUSTOM}
-          autoFocus={autoFocus}
-        />
         <SimpleBar
-          style={{ height: '100%', width: '100%', maxHeight: 300 }}
           scrollableNodeProps={{ ref: this.setScrollRef }}
           onScroll={this.handleScroll}
+          className="emoji-mart-scroll"
           forceVisible="y"
           autoHide={true}
         >
@@ -626,35 +651,17 @@ export default class NimblePicker extends React.PureComponent {
             )
           })}
         </SimpleBar>
-
-        {(showPreview || showSkinTones) && (
-          <div className="emoji-mart-bar">
-            <Preview
-              ref={this.setPreviewRef}
-              data={this.data}
-              title={title}
-              emoji={emoji}
-              showSkinTones={showSkinTones}
-              showPreview={showPreview}
-              emojiProps={{
-                native: native,
-                size: 38,
-                skin: skin,
-                set: set,
-                sheetSize: sheetSize,
-                sheetColumns: sheetColumns,
-                sheetRows: sheetRows,
-                backgroundImageFn: backgroundImageFn,
-              }}
-              skinsProps={{
-                skin: skin,
-                onChange: this.handleSkinChange,
-                skinEmoji: skinEmoji,
-              }}
-              i18n={this.i18n}
-            />
-          </div>
-        )}
+        <div className="emoji-mart-bar">
+          <Anchors
+            ref={this.setAnchorsRef}
+            data={this.data}
+            i18n={this.i18n}
+            color={color}
+            categories={this.categories}
+            onAnchorClick={this.handleAnchorClick}
+            icons={this.icons}
+          />
+        </div>
       </section>
     )
   }

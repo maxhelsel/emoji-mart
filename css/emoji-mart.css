@@ -85,11 +85,27 @@
   width: 18px;
 }
 
+/* FORK STYLES */
+
+.emoji-mart-strip-container {
+  padding: 6px;
+}
+
+.emoji-mart-strip-wrapper {
+  display: flex;
+  flex-flow: row;
+}
+
+.emoji-mart-strip-skin {
+  position: relative;
+}
+
 .emoji-mart-scroll {
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 270px;
+  height: 300px;
   padding: 0 6px 6px 6px;
+  width: 100%;
   will-change: transform; /* avoids "repaints on scroll" in mobile Chrome */
 }
 
