@@ -584,7 +584,7 @@ export default class NimblePicker extends React.PureComponent {
                         i18n={this.i18n}
                         onChange={this.handleSkinChange}
                       />
-                  )}
+                  }
                 </div>
               </div>
             )}
