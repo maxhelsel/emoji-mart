@@ -55,10 +55,6 @@ export default class Anchors extends React.PureComponent {
               <div className="emoji-mart-anchor-icon">
                 {icons.categories[iconId]()}
               </div>
-              <span
-                className="emoji-mart-anchor-bar"
-                style={{ backgroundColor: color }}
-              />
             </button>
           )
         })}

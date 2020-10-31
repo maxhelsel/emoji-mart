@@ -12,6 +12,7 @@
   border: 1px solid #d9d9d9;
   border-radius: 5px;
   background: #fff;
+  border-width: 0px !important;
 }
 
 .emoji-mart .emoji-mart-emoji {
@@ -27,7 +28,7 @@
   border-top-right-radius: 5px;
 }
 .emoji-mart-bar:last-child {
-  border-top-width: 1px;
+  border-top-width: 2px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
@@ -46,7 +47,7 @@
   flex: 1 1 auto;
   color: #858585;
   text-align: center;
-  padding: 12px 4px;
+  padding: 6px 0px;
   overflow: hidden;
   transition: color .1s ease-out;
   margin: 0;
@@ -85,43 +86,69 @@
   width: 18px;
 }
 
-/* FORK STYLES */
-
-.emoji-mart-strip-container {
-  padding: 6px;
+.emoji-mart-anchor-icon {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
 }
 
-.emoji-mart-strip-wrapper {
+/* FORK STYLES */
+
+.emoji-mart-anchor-selected .emoji-mart-anchor-icon {
+  background: rgb(255, 230, 255) !important;
+}
+
+.emoji-mart-bar:last-child {
+  border-top-width: 2px;
+}
+
+.emoji-mart-strip-container {
+  padding: 6px 6px 6px;
   display: flex;
   flex-flow: row;
+  overflow: hidden;
+  width: 100%;
+  align-items: center;
+  border: 0 solid #d9d9d9;
+  border-bottom-width: 2px;
+  border-color: inherit;
 }
 
 .emoji-mart-strip-skin {
   position: relative;
+  padding: 0px 6px;
+  border: 0 solid #d9d9d9;
+  border-left-width: 1px;
+  border-color: inherit;
 }
 
 .emoji-mart-scroll {
-  overflow-y: scroll;
-  overflow-x: hidden;
   height: 300px;
-  padding: 0 6px 6px 6px;
+  padding: 0px;
   width: 100%;
+  overflow: unset;
   will-change: transform; /* avoids "repaints on scroll" in mobile Chrome */
 }
 
 .emoji-mart-search {
-  margin-top: 6px;
-  padding: 0 6px;
+  margin-top: 0px;
+  padding: 0px;
+  flex: 1;
   position: relative;
 }
 
 .emoji-mart-search input {
-  font-size: 16px;
+  font-size: 14px;
+  line-height: 1;
   display: block;
   width: 100%;
-  padding: 5px 25px 6px 10px;
-  border-radius: 5px;
-  border: 1px solid #d9d9d9;
+  padding: 6px 30px 6px 6px;
+  border-radius: 16px;
+  background: none;
+  border: none;
   outline: 0;
 }
 
@@ -135,12 +162,19 @@
   -webkit-appearance: none;
 }
 
+.emoji-mart-search-icon svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
 .emoji-mart-search-icon {
+  display: inline-flex;
+  align-items: center;
   position: absolute;
-  top: 7px;
-  right: 11px;
+  top: 0px;
+  right: 0px;
   z-index: 2;
-  padding: 2px 5px 1px;
+  padding: 7px;
   border: none;
   background: none;
 }
@@ -173,8 +207,11 @@
 .emoji-mart-category-label span {
   display: block;
   width: 100%;
-  font-weight: 500;
-  padding: 5px 6px;
+  font-weight: bold;
+  padding: 8px 6px;
+  color: #678;
+  font-size: 14px;
+  line-height: 1;
   background-color: #fff;
   background-color: rgba(255, 255, 255, .95);
 }
@@ -200,6 +237,7 @@
   border: none;
   background: none;
   box-shadow: none;
+  cursor: pointer !important;
 }
 
 .emoji-mart-emoji-native {
@@ -236,9 +274,7 @@
 .emoji-mart-preview-emoji,
 .emoji-mart-preview-data,
 .emoji-mart-preview-skins {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
 }
 
 .emoji-mart-preview-emoji {
@@ -251,7 +287,6 @@
 }
 
 .emoji-mart-preview-skins {
-  right: 30px;
   text-align: right;
 }
 
@@ -309,7 +344,8 @@
 }
 
 .emoji-mart-skin-swatches.opened .emoji-mart-skin-swatch {
-  width: 16px;
+  width: 20px;
+  cursor: pointer;
   padding: 0 2px;
 }
 
@@ -335,8 +371,10 @@
 
 .emoji-mart-skin-swatch.selected {
   position: relative;
-  width: 16px;
+  width: 20px;
   padding: 0 2px;
+  cursor: pointer;
+  outline: none;
 }
 
 .emoji-mart-skin-swatch.selected:after {
@@ -409,7 +447,8 @@
   display: inline-block;
   width: 100%;
   padding-top: 100%;
-  max-width: 12px;
+  max-width: 20px !important;
+  outline: none !important;
   border-radius: 100%;
 }
 
