@@ -577,7 +577,7 @@ export default class NimblePicker extends React.PureComponent {
           autoFocus={autoFocus}
         />
         <SimpleBar
-          style={{ height: '100%', width: '100%', maxHeight: '100%' }}
+          style={{ height: '100%', width: '100%', maxHeight: 300 }}
           scrollableNodeProps={{ ref: this.setScrollRef }}
           onScroll={this.handleScroll}
           forceVisible="y"
