@@ -98,7 +98,7 @@
 /* FORK STYLES */
 
 .emoji-mart-anchor-selected .emoji-mart-anchor-icon {
-  background: rgb(255, 230, 255) !important;
+  background: rgb(255, 230, 255);
 }
 
 .emoji-mart-bar:last-child {
@@ -147,7 +147,7 @@
   width: 100%;
   padding: 6px 30px 6px 6px;
   border-radius: 16px;
-  background: none;
+  background: none !important;
   border: none;
   outline: 0;
 }
@@ -183,7 +183,7 @@
   z-index: 1;
   position: relative;
   text-align: center;
-  cursor: default;
+  cursor: pointer;
 }
 
 .emoji-mart-category .emoji-mart-emoji:hover:before {
@@ -502,6 +502,10 @@
 .emoji-mart-dark .emoji-mart-category-label span {
   background-color: #222;
   color: #fff;
+}
+
+.emoji-mart-dark .emoji-mart-anchor-selected .emoji-mart-anchor-icon {
+  background: rgba(0, 230, 255, .1) !important;
 }
 
 .emoji-mart-dark .emoji-mart-skin-swatches {
