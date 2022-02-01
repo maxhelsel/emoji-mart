@@ -15,8 +15,7 @@ export default class Anchors extends React.PureComponent {
   }
 
   render() {
-    var { categories, color, i18n, icons, selectedCategory } = this.props,
-      { selected } = this.state
+    var { categories, color, i18n, icons, selectedCategory } = this.props;
 
     return (
       <nav className="emoji-mart-anchors" aria-label={i18n.categorieslabel}>
