@@ -636,7 +636,7 @@ export default class NimblePicker extends React.PureComponent {
                   hasStickyPosition={this.hasStickyPosition}
                   data={this.data}
                   i18n={this.i18n}
-                  isFirst={Boolean(i === 0)}
+                  isFirst={Boolean(i === 1)}
                   recent={
                     category.id == this.RECENT_CATEGORY.id ? recent : undefined
                   }
