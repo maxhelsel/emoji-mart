@@ -676,6 +676,7 @@ export default class NimblePicker extends React.PureComponent {
         <div className="emoji-mart-bar">
           <Anchors
             ref={this.setAnchorsRef}
+            selectedCategory={this.categories.filter((category) => category.first)[0]}
             data={this.data}
             i18n={this.i18n}
             color={color}
