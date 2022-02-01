@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import * as icons from '../../svgs'
 import store from '../../utils/store'
 import frequently from '../../utils/frequently'
@@ -16,8 +15,10 @@ import { PickerDefaultProps } from '../../utils/shared-default-props'
 
 import SkinsEmoji from '../skins-emoji';
 import SkinsDot from '../skins-dot';
-import SimpleBar from 'simplebar-react';
-import 'simplebar/dist/simplebar.min.css';
+
+import clsx from 'clsx';
+import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
+import 'overlayscrollbars/css/OverlayScrollbars.css';
 
 const I18N = {
   search: 'Search',
@@ -556,18 +557,8 @@ export default class NimblePicker extends React.PureComponent {
         aria-label={title}
         onKeyDown={this.handleKeyDown}
       >
-        <div className="emoji-mart-strip-container">
-          <Search
-            ref={this.setSearchRef}
-            onSearch={this.handleSearch}
-            data={this.data}
-            i18n={this.i18n}
-            emojisToShowFilter={emojisToShowFilter}
-            include={include}
-            exclude={exclude}
-            custom={this.CUSTOM}
-            autoFocus={autoFocus}
-          />
+        <div className="emoji-mart-strip-container" >
+          <div style={{ flex: 1 }} />
           {showSkinTones && (
             <div className="emoji-mart-strip-skin">
               <div className={`emoji-mart-preview-skins${skinEmoji ? ' custom' : ''}`} >
@@ -598,15 +589,40 @@ export default class NimblePicker extends React.PureComponent {
               </div>
             </div>
           )}
+          <button
+            className="emoji-mart-search-icon"
+            onClick={this.props.handleClose && this.props.handleClose}
+            aria-label='close emojis'
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={this.props.closeSize ? `${this.props.closeSize}px` : '24px'}
+              height={this.props.closeSize ? `${this.props.closeSize}px` : '24px'}
+              style={{ display: 'inline-block', verticalAlign: 'middle', fill: 'none' }}
+              stroke={this.props.closeColor ? this.props.closeColor : "rgba(0, 0, 0, .5)"}
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              viewBox="0 0 24 24"
+            >
+              <path stroke="none" fill="none" d='M0 0h24v24H0z' />
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
         </div>
-        <SimpleBar
-          scrollableNodeProps={{ ref: this.setScrollRef }}
-          onScroll={this.handleScroll}
-          className="emoji-mart-scroll"
-          forceVisible="y"
-          autoHide={true}
+        <OverlayScrollbarsComponent
+          ref={this.setScrollRef}
+          className={clsx('emoji-mart-scroll', {
+            ['os-theme-dark']: this.props.theme && this.props.theme === 'dark',
+            ['os-theme-light']: !this.props.theme || (this.props.theme !== 'dark')
+          })}
+          options={{
+            overflowBehavior: { x: 'hidden' },
+            callbacks: { onScroll: this.handleScroll }
+          }}
         >
-          <div className="emoji-mart-inner-scroll" style={{ padding: '6px' }} >
+          <div className="emoji-mart-inner-scroll" style={{ padding: '0px 6px 6px' }} >
             {this.getCategories().map((category, i) => {
               return (
                 <Category
@@ -650,7 +666,7 @@ export default class NimblePicker extends React.PureComponent {
               )
             })}
           </div>
-        </SimpleBar>
+        </OverlayScrollbarsComponent>
         <div className="emoji-mart-bar">
           <Anchors
             ref={this.setAnchorsRef}

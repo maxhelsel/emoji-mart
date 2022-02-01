@@ -115,6 +115,7 @@
   border: 0 solid #d9d9d9;
   border-bottom-width: 2px;
   border-color: inherit;
+  position: absolute;
 }
 
 .emoji-mart-strip-skin {
@@ -208,7 +209,7 @@
   display: block;
   width: 100%;
   font-weight: bold;
-  padding: 8px 6px;
+  padding: 15px 6px;
   color: #678;
   font-size: 14px;
   line-height: 1;
