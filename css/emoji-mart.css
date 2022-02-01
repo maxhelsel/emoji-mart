@@ -93,6 +93,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 /* FORK STYLES */
@@ -106,7 +107,7 @@
 }
 
 .emoji-mart-strip-container {
-  padding: 6px 6px 6px;
+  padding: 9px;
   display: flex;
   flex-flow: row;
   overflow: hidden;
@@ -132,6 +133,12 @@
   width: 100%;
   padding: 0px 6px 6px;
   will-change: transform; /* avoids "repaints on scroll" in mobile Chrome */
+}
+
+.emoji-mart-search-container {
+  flex: 1;
+  padding: 0px 6px;
+  border-radius: 8px;
 }
 
 .emoji-mart-search {

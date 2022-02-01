@@ -42,7 +42,7 @@ export default class Search extends React.PureComponent {
       })
     else
       this.setState({
-        icon: icons.delete,
+        icon: icons.backspace,
         isSearching: true,
       })
 

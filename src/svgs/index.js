@@ -161,6 +161,14 @@ const search = {
       <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z" />
     </svg>
   ),
+
+  backspace: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" opacity="0.5" >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M20 6a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-11l-5 -5a1.5 1.5 0 0 1 0 -2l5 -5z"></path>
+      <path d="M12 10l4 4m0 -4l-4 4"></path>
+    </svg>
+  )
 }
 
 export { categories, search }

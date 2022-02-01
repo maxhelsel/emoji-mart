@@ -204,7 +204,7 @@ export default class Category extends React.Component {
           </span>
         </div>
 
-        <ul className="emoji-mart-category-list" style={{ paddingTop: Boolean(isFirst) ? 12 : 0 }}>
+        <ul className="emoji-mart-category-list" >
           {emojis &&
             emojis.map((emoji) => (
               <li
