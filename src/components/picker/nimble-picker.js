@@ -610,64 +610,59 @@ export default class NimblePicker extends React.PureComponent {
             </svg>
           </button>
         </div>
-        <SimpleBar
-          scrollableNodeProps={{ ref: this.setScrollRef }}
-          onScroll={this.handleScroll}
-          className="emoji-mart-scroll"
-          forceVisible="y"
-          autoHide={true}
-        >
-          {({ scrollableNodeRef, contentNodeRef }) => {
-            setScrollRef(contentNodeRef)
-            return (
-              <Fragment>
-                {this.getCategories().map((category, i) => {
-                  return (
-                    <Category
-                      ref={this.setCategoryRef.bind(this, `category-${i}`)}
-                      key={category.name}
-                      id={category.id}
-                      name={category.name}
-                      emojis={category.emojis}
-                      perLine={perLine}
-                      native={native}
-                      hasStickyPosition={this.hasStickyPosition}
-                      data={this.data}
-                      i18n={this.i18n}
-                      isFirst={Boolean(i === 1)}
-                      recent={
-                        category.id == this.RECENT_CATEGORY.id ? recent : undefined
-                      }
-                      custom={
-                        category.id == this.RECENT_CATEGORY.id
-                          ? this.CUSTOM
-                          : undefined
-                      }
-                      emojiProps={{
-                        native: native,
-                        skin: skin,
-                        size: emojiSize,
-                        set: set,
-                        sheetSize: sheetSize,
-                        sheetColumns: sheetColumns,
-                        sheetRows: sheetRows,
-                        forceSize: native,
-                        tooltip: emojiTooltip,
-                        backgroundImageFn: backgroundImageFn,
-                        useButton: useButton,
-                        onOver: this.handleEmojiOver,
-                        onLeave: this.handleEmojiLeave,
-                        onClick: this.handleEmojiClick,
-                      }}
-                      notFound={notFound}
-                      notFoundEmoji={notFoundEmoji}
-                    />
-                  )
-                })}
-              </Fragment>
-            );
-          }}
-        </SimpleBar>
+        <div style={{ height: '100%', flex: 1, width: '100%', overflow: 'hidden' }} >
+          <SimpleBar
+            scrollableNodeProps={{ ref: this.setScrollRef }}
+            onScroll={this.handleScroll}
+            className="emoji-mart-scroll"
+            forceVisible="y"
+            autoHide={true}
+          >
+            {this.getCategories().map((category, i) => {
+              return (
+                <Category
+                  ref={this.setCategoryRef.bind(this, `category-${i}`)}
+                  key={category.name}
+                  id={category.id}
+                  name={category.name}
+                  emojis={category.emojis}
+                  perLine={perLine}
+                  native={native}
+                  hasStickyPosition={this.hasStickyPosition}
+                  data={this.data}
+                  i18n={this.i18n}
+                  isFirst={Boolean(i === 1)}
+                  recent={
+                    category.id == this.RECENT_CATEGORY.id ? recent : undefined
+                  }
+                  custom={
+                    category.id == this.RECENT_CATEGORY.id
+                      ? this.CUSTOM
+                      : undefined
+                  }
+                  emojiProps={{
+                    native: native,
+                    skin: skin,
+                    size: emojiSize,
+                    set: set,
+                    sheetSize: sheetSize,
+                    sheetColumns: sheetColumns,
+                    sheetRows: sheetRows,
+                    forceSize: native,
+                    tooltip: emojiTooltip,
+                    backgroundImageFn: backgroundImageFn,
+                    useButton: useButton,
+                    onOver: this.handleEmojiOver,
+                    onLeave: this.handleEmojiLeave,
+                    onClick: this.handleEmojiClick,
+                  }}
+                  notFound={notFound}
+                  notFoundEmoji={notFoundEmoji}
+                />
+              )
+            })}
+          </SimpleBar>
+        </div>
         <div className="emoji-mart-bar">
           <Anchors
             ref={this.setAnchorsRef}
