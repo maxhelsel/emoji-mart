@@ -16,9 +16,6 @@ import { PickerDefaultProps } from '../../utils/shared-default-props'
 import SkinsEmoji from '../skins-emoji';
 import SkinsDot from '../skins-dot';
 
-import SimpleBar from 'simplebar-react';
-import 'simplebar/dist/simplebar.min.css';
-
 const I18N = {
   search: 'Search',
   clear: 'Clear', // Accessible label on "clear" button
@@ -557,7 +554,19 @@ export default class NimblePicker extends React.PureComponent {
         onKeyDown={this.handleKeyDown}
       >
         <div className="emoji-mart-strip-container" >
-          <div style={{ flex: 1 }} />
+          <div style={{ flex: 1 }} >
+            <Search
+              ref={this.setSearchRef}
+              onSearch={this.handleSearch}
+              data={this.data}
+              i18n={this.i18n}
+              emojisToShowFilter={emojisToShowFilter}
+              include={include}
+              exclude={exclude}
+              custom={this.CUSTOM}
+              autoFocus={autoFocus}
+            />
+          </div>
           {showSkinTones && (
             <div className="emoji-mart-strip-skin">
               <div className={`emoji-mart-preview-skins${skinEmoji ? ' custom' : ''}`} >
@@ -610,58 +619,54 @@ export default class NimblePicker extends React.PureComponent {
             </svg>
           </button>
         </div>
-        <div style={{ height: '100%', flex: 1, width: '100%', overflow: 'hidden' }} >
-          <SimpleBar
-            scrollableNodeProps={{ ref: this.setScrollRef }}
-            onScroll={this.handleScroll}
-            className="emoji-mart-scroll"
-            forceVisible="y"
-            autoHide={true}
-          >
-            {this.getCategories().map((category, i) => {
-              return (
-                <Category
-                  ref={this.setCategoryRef.bind(this, `category-${i}`)}
-                  key={category.name}
-                  id={category.id}
-                  name={category.name}
-                  emojis={category.emojis}
-                  perLine={perLine}
-                  native={native}
-                  hasStickyPosition={this.hasStickyPosition}
-                  data={this.data}
-                  i18n={this.i18n}
-                  isFirst={Boolean(i === 1)}
-                  recent={
-                    category.id == this.RECENT_CATEGORY.id ? recent : undefined
-                  }
-                  custom={
-                    category.id == this.RECENT_CATEGORY.id
-                      ? this.CUSTOM
-                      : undefined
-                  }
-                  emojiProps={{
-                    native: native,
-                    skin: skin,
-                    size: emojiSize,
-                    set: set,
-                    sheetSize: sheetSize,
-                    sheetColumns: sheetColumns,
-                    sheetRows: sheetRows,
-                    forceSize: native,
-                    tooltip: emojiTooltip,
-                    backgroundImageFn: backgroundImageFn,
-                    useButton: useButton,
-                    onOver: this.handleEmojiOver,
-                    onLeave: this.handleEmojiLeave,
-                    onClick: this.handleEmojiClick,
-                  }}
-                  notFound={notFound}
-                  notFoundEmoji={notFoundEmoji}
-                />
-              )
-            })}
-          </SimpleBar>
+        <div
+          ref={this.setScrollRef}
+          className="emoji-mart-scroll"
+          onScroll={this.handleScroll}
+        >
+          {this.getCategories().map((category, i) => {
+            return (
+              <Category
+                ref={this.setCategoryRef.bind(this, `category-${i}`)}
+                key={category.name}
+                id={category.id}
+                name={category.name}
+                emojis={category.emojis}
+                perLine={perLine}
+                native={native}
+                hasStickyPosition={this.hasStickyPosition}
+                data={this.data}
+                i18n={this.i18n}
+                isFirst={Boolean(i === 1)}
+                recent={
+                  category.id == this.RECENT_CATEGORY.id ? recent : undefined
+                }
+                custom={
+                  category.id == this.RECENT_CATEGORY.id
+                    ? this.CUSTOM
+                    : undefined
+                }
+                emojiProps={{
+                  native: native,
+                  skin: skin,
+                  size: emojiSize,
+                  set: set,
+                  sheetSize: sheetSize,
+                  sheetColumns: sheetColumns,
+                  sheetRows: sheetRows,
+                  forceSize: native,
+                  tooltip: emojiTooltip,
+                  backgroundImageFn: backgroundImageFn,
+                  useButton: useButton,
+                  onOver: this.handleEmojiOver,
+                  onLeave: this.handleEmojiLeave,
+                  onClick: this.handleEmojiClick,
+                }}
+                notFound={notFound}
+                notFoundEmoji={notFoundEmoji}
+              />
+            )
+          })}
         </div>
         <div className="emoji-mart-bar">
           <Anchors
