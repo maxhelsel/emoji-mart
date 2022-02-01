@@ -116,13 +116,14 @@
   border-bottom-width: 2px;
   border-color: inherit;
   position: absolute;
+  z-index: 4;
 }
 
 .emoji-mart-strip-skin {
   position: relative;
-  padding: 0px 6px;
+  padding: 0px 8px;
   border: 0 solid #d9d9d9;
-  border-left-width: 1px;
+  border-right-width: 1px;
   border-color: inherit;
 }
 
@@ -178,6 +179,22 @@
   padding: 7px;
   border: none;
   background: none;
+}
+
+.emoji-mart-close-icon {
+  display: inline-flex;
+  align-items: center;
+  top: 0px;
+  right: 0px;
+  z-index: 2;
+  padding: 3px;
+  border: none;
+  background: none;
+}
+
+.emoji-mart-close-icon svg {
+  width: 24px !important;
+  height: 24px !important;
 }
 
 .emoji-mart-category .emoji-mart-emoji span {

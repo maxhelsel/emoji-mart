@@ -153,6 +153,7 @@ export default class Category extends React.Component {
     var {
         id,
         name,
+        isFirst,
         hasStickyPosition,
         emojiProps,
         i18n,
@@ -203,7 +204,7 @@ export default class Category extends React.Component {
           </span>
         </div>
 
-        <ul className="emoji-mart-category-list">
+        <ul className="emoji-mart-category-list" style={{ paddingTop: Boolean(isFirst) ? 12 : 0 }}>
           {emojis &&
             emojis.map((emoji) => (
               <li

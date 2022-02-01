@@ -590,7 +590,7 @@ export default class NimblePicker extends React.PureComponent {
             </div>
           )}
           <button
-            className="emoji-mart-search-icon"
+            className="emoji-mart-close-icon"
             onClick={this.props.handleClose && this.props.handleClose}
             aria-label='close emojis'
           >
@@ -636,6 +636,7 @@ export default class NimblePicker extends React.PureComponent {
                   hasStickyPosition={this.hasStickyPosition}
                   data={this.data}
                   i18n={this.i18n}
+                  isFirst={Boolean(index === 0)}
                   recent={
                     category.id == this.RECENT_CATEGORY.id ? recent : undefined
                   }
