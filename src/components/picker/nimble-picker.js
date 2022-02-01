@@ -16,8 +16,9 @@ import { PickerDefaultProps } from '../../utils/shared-default-props'
 import SkinsEmoji from '../skins-emoji';
 import SkinsDot from '../skins-dot';
 
-import SimpleBar from 'simplebar-react';
-import 'simplebar/dist/simplebar.min.css';
+import clsx from 'clsx';
+import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
+import 'overlayscrollbars/css/OverlayScrollbars.css';
 
 const I18N = {
   search: 'Search',
@@ -611,14 +612,17 @@ export default class NimblePicker extends React.PureComponent {
           </button>
         </div>
 
-
-
-        <SimpleBar
-          scrollableNodeProps={{ ref: this.setScrollRef }}
+        <OverlayScrollbarsComponent
+          ref={this.setScrollRef}
           onScroll={this.handleScroll}
-          className="emoji-mart-scroll"
-          forceVisible="y"
-          autoHide={true}
+          className={clsx('emoji-mart-scroll', {
+            ['os-theme-dark']: this.props.theme && this.props.theme === 'dark',
+            ['os-theme-light']: !this.props.theme || (this.props.theme !== 'dark')
+          })}
+          options={{
+            overflowBehavior: { x: 'hidden' },
+            callbacks: { onScroll: this.handleScroll }
+          }}
         >
             {this.getCategories().map((category, i) => {
               return (
@@ -663,7 +667,7 @@ export default class NimblePicker extends React.PureComponent {
                 />
               )
             })}
-        </SimpleBar>
+        </OverlayScrollbarsComponent>
         <div className="emoji-mart-bar">
           <Anchors
             ref={this.setAnchorsRef}
