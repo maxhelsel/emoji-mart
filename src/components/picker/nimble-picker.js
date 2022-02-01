@@ -610,6 +610,9 @@ export default class NimblePicker extends React.PureComponent {
             </svg>
           </button>
         </div>
+
+
+
         <SimpleBar
           scrollableNodeProps={{ ref: this.setScrollRef }}
           onScroll={this.handleScroll}
@@ -617,7 +620,6 @@ export default class NimblePicker extends React.PureComponent {
           forceVisible="y"
           autoHide={true}
         >
-          <div className="emoji-mart-inner-scroll" style={{ padding: '0px 6px 6px' }} >
             {this.getCategories().map((category, i) => {
               return (
                 <Category
@@ -661,7 +663,6 @@ export default class NimblePicker extends React.PureComponent {
                 />
               )
             })}
-          </div>
         </SimpleBar>
         <div className="emoji-mart-bar">
           <Anchors

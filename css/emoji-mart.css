@@ -132,6 +132,7 @@
   padding: 0px;
   width: 100%;
   overflow: unset;
+  padding: 0px 6px 6px;
   will-change: transform; /* avoids "repaints on scroll" in mobile Chrome */
 }
 
