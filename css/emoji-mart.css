@@ -128,7 +128,7 @@
 }
 
 .emoji-mart-scroll {
-  overflow-y: scroll;
+  overflow-y: unset;
   overflow-x: hidden;
   height: 300px;
   padding: 0px 6px 6px;
@@ -176,6 +176,18 @@
 }
 
 .emoji-mart-search-icon {
+  display: inline-flex;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 2;
+  padding: 7px;
+  border: none;
+  background: none;
+}
+
+.emoji-mart-search-delete {
   display: inline-flex;
   align-items: center;
   position: absolute;
@@ -540,9 +552,10 @@
   border-color: #555453;
   background-color: #222;
 }
-
+/*
 .emoji-mart-dark .emoji-mart-anchor:hover,
 .emoji-mart-dark .emoji-mart-anchor:focus,
 .emoji-mart-dark .emoji-mart-anchor-selected {
   color: #bfbfbf;
 }
+*/
