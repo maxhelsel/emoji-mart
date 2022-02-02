@@ -554,7 +554,7 @@ export default class NimblePicker extends React.PureComponent {
         onKeyDown={this.handleKeyDown}
       >
         <div className="emoji-mart-strip-container" >
-          <div className="emoji-mart-search-container" style={{ background: theme && theme === 'dark' ? '#F5F5F5' : '#0F1120' }} >
+          <div className="emoji-mart-search-container" style={{ background: theme && theme === 'dark' ? '#263238' : '#F5F5F5' }} >
             <Search
               ref={this.setSearchRef}
               onSearch={this.handleSearch}
@@ -601,13 +601,14 @@ export default class NimblePicker extends React.PureComponent {
             className="emoji-mart-close-icon"
             onClick={this.props.handleClose && this.props.handleClose}
             aria-label='close emojis'
+            style={{ cursor: 'pointer' }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={this.props.closeSize ? `${this.props.closeSize}px` : '24px'}
               height={this.props.closeSize ? `${this.props.closeSize}px` : '24px'}
               style={{ display: 'inline-block', verticalAlign: 'middle', fill: 'none' }}
-              stroke={this.props.closeColor ? this.props.closeColor : "rgba(0, 0, 0, .5)"}
+              stroke={theme && theme === 'dark' ? '#f5f5f5' : '#345'}
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"

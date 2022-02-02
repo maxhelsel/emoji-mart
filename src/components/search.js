@@ -103,7 +103,7 @@ export default class Search extends React.PureComponent {
           {i18n.search}
         </label>
         <button
-          className="emoji-mart-search-icon"
+          className={isSearching ? "emoji-mart-search-icon" : "emoji-mart-search-delete"}
           onClick={this.clear}
           onKeyUp={this.handleKeyUp}
           aria-label={i18n.clear}

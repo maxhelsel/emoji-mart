@@ -128,9 +128,9 @@
 }
 
 .emoji-mart-scroll {
+  overflow-y: scroll;
+  overflow-x: hidden;
   height: 300px;
-  padding: 0px;
-  width: 100%;
   padding: 0px 6px 6px;
   will-change: transform; /* avoids "repaints on scroll" in mobile Chrome */
 }
@@ -502,7 +502,7 @@
 .emoji-mart-dark {
   color: #fff;
   border-color: #555453;
-  background-color: #222;
+  background-color: #0F1120;
 }
 
 .emoji-mart-dark .emoji-mart-bar {
@@ -519,12 +519,16 @@
   fill: #fff;
 }
 
+.emoji-mart-dark .emoji-mart-search-delete svg {
+  stroke: #fff;
+}
+
 .emoji-mart-dark .emoji-mart-category .emoji-mart-emoji:hover:before {
   background-color: #444;
 }
 
 .emoji-mart-dark .emoji-mart-category-label span {
-  background-color: #222;
+  background-color: #0F1120;
   color: #fff;
 }
 
