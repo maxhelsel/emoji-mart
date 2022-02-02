@@ -557,19 +557,7 @@ export default class NimblePicker extends React.PureComponent {
         onKeyDown={this.handleKeyDown}
       >
         <div className="emoji-mart-strip-container" >
-          <div className="emoji-mart-search-container" style={{ background: theme && theme === 'dark' ? '#263238' : '#F5F5F5' }} >
-            <Search
-              ref={this.setSearchRef}
-              onSearch={this.handleSearch}
-              data={this.data}
-              i18n={this.i18n}
-              emojisToShowFilter={emojisToShowFilter}
-              include={include}
-              exclude={exclude}
-              custom={this.CUSTOM}
-              autoFocus={autoFocus}
-            />
-          </div>
+          <div style={{ flex: 1 }} />
           {showSkinTones && (
             <div className="emoji-mart-strip-skin">
               <div className={`emoji-mart-preview-skins${skinEmoji ? ' custom' : ''}`} >
