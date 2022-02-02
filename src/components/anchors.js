@@ -4,15 +4,6 @@ import PropTypes from 'prop-types'
 export default class Anchors extends React.PureComponent {
   constructor(props) {
     super(props)
-
-    let defaultCategory = props.categories.filter(
-      (category) => category.first,
-    )[0]
-
-    this.state = {
-      selected: defaultCategory.name,
-    }
-
     this.handleClick = this.handleClick.bind(this)
   }
 
@@ -24,21 +15,16 @@ export default class Anchors extends React.PureComponent {
   }
 
   render() {
-    var { categories, color, i18n, icons } = this.props,
-      { selected } = this.state
+    var { categories, color, i18n, icons } = this.props
 
     return (
-      <nav className="emoji-mart-anchors" aria-label={i18n.categorieslabel}>
+      <nav className="emoji-mart-anchors" aria-label={i18n.categorieslabel} >
         {categories.map((category, i) => {
-          var { id, name, anchor } = category,
-            isSelected = name == selected
-
+          var { id, name, anchor } = category
           if (anchor === false) {
             return null
           }
-
           const iconId = id.startsWith('custom-') ? 'custom' : id
-
           return (
             <button
               key={id}
@@ -47,12 +33,9 @@ export default class Anchors extends React.PureComponent {
               data-index={i}
               type={'button'}
               onClick={this.handleClick}
-              className={`emoji-mart-anchor ${
-                isSelected ? 'emoji-mart-anchor-selected' : ''
-              }`}
-              style={{ color: isSelected ? color : null }}
+              className={`emoji-mart-anchor`}
             >
-              <div className="emoji-mart-anchor-icon">
+              <div className="emoji-mart-anchor-icon" >
                 {icons.categories[iconId]()}
               </div>
             </button>

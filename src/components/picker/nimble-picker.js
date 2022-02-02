@@ -16,6 +16,9 @@ import { PickerDefaultProps } from '../../utils/shared-default-props'
 import SkinsEmoji from '../skins-emoji';
 import SkinsDot from '../skins-dot';
 
+import SimpleBar from 'simplebar-react';
+import 'simplebar/dist/simplebar.min.css';
+
 const I18N = {
   search: 'Search',
   clear: 'Clear', // Accessible label on "clear" button
@@ -620,10 +623,12 @@ export default class NimblePicker extends React.PureComponent {
             </svg>
           </button>
         </div>
-        <div
-          ref={this.setScrollRef}
-          className="emoji-mart-scroll"
+        <SimpleBar
+          scrollableNodeProps={{ ref: this.setScrollRef }}
           onScroll={this.handleScroll}
+          className="emoji-mart-scroll"
+          forceVisible="y"
+          autoHide={true}
         >
           {this.getCategories().map((category, i) => {
             return (
@@ -668,7 +673,7 @@ export default class NimblePicker extends React.PureComponent {
               />
             )
           })}
-        </div>
+        </SimpleBar>
         <div className="emoji-mart-bar">
           <Anchors
             ref={this.setAnchorsRef}
