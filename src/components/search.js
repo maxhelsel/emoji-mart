@@ -42,7 +42,7 @@ export default class Search extends React.PureComponent {
       })
     else
       this.setState({
-        icon: icons.backspace,
+        icon: icons.delete,
         isSearching: true,
       })
 
@@ -103,7 +103,7 @@ export default class Search extends React.PureComponent {
           {i18n.search}
         </label>
         <button
-          className={isSearching ? "emoji-mart-search-delete" : "emoji-mart-search-icon"}
+          className="emoji-mart-search-icon"
           onClick={this.clear}
           onKeyUp={this.handleKeyUp}
           aria-label={i18n.clear}
