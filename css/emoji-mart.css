@@ -101,7 +101,7 @@
 }
 
 .emoji-mart-strip-container {
-  padding: 9px;
+  padding: 9px 4px 9px 9px;
   display: flex;
   flex-flow: row;
   overflow: hidden;
