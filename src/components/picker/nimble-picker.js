@@ -616,7 +616,6 @@ export default class NimblePicker extends React.PureComponent {
           onScroll={this.handleScroll}
           className="emoji-mart-scroll"
           forceVisible="y"
-          autoHide={true}
         >
           {this.getCategories().map((category, i) => {
             return (
