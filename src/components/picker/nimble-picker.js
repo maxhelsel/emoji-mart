@@ -618,7 +618,7 @@ export default class NimblePicker extends React.PureComponent {
             className="emoji-mart-scroll"
             forceVisible="y"
             autoHide={false}
-            style={{ width: '100%', height: '100%', maxHeight: '100%' }}
+            style={{ width: '100%', maxHeight: '100%' }}
           >
             <div style={{ display: 'flex', flexFlow: 'column', width: '100%', height: '100%', minHeight: 600 }} >
               {this.getCategories().map((category, i) => {
