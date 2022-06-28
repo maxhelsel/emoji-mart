@@ -1,24 +1,27 @@
 {
-  "name": "emoji-mart",
+  "name": "emoji-mart-simplebar-picker",
   "version": "3.0.6",
-  "description": "Customizable Slack-like emoji picker for React",
+  "description": "Customizable Slack-like emoji picker for React, uses SimpleBar",
   "main": "dist/index.js",
   "module": "dist-es/index.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:missive/emoji-mart.git"
+    "url": "git@github.com:maxhelsel/emoji-mart.git"
   },
   "keywords": [
     "react",
     "emoji",
     "picker"
   ],
-  "author": "Etienne Lemay",
-  "license": "BSD-3-Clause",
+  "author": "Max Helsel",
+  "license": "(MIT or BSD-3-Clause)",
+  "contributors": [
+    "Etienne Lemay"
+  ],
   "bugs": {
     "url": "https://github.com/missive/emoji-mart/issues"
   },
-  "homepage": "https://github.com/missive/emoji-mart",
+  "homepage": "https://github.com/maxhelsel/emoji-mart",
   "dependencies": {
     "@babel/runtime": "^7.0.0",
     "prop-types": "^15.6.0",
