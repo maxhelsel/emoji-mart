@@ -15,9 +15,7 @@ import { PickerDefaultProps } from '../../utils/shared-default-props'
 
 import SkinsEmoji from '../skins-emoji';
 import SkinsDot from '../skins-dot';
-
 import SimpleBar from 'simplebar-react';
-import 'simplebar/dist/simplebar.min.css';
 
 const I18N = {
   search: 'Search',

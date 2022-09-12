@@ -1,6 +1,6 @@
 {
   "name": "emoji-mart-simplebar-picker",
-  "version": "3.0.8",
+  "version": "3.0.81",
   "description": "Customizable Slack-like emoji picker for React, uses SimpleBar",
   "main": "dist/index.js",
   "module": "dist-es/index.js",
